@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+         <meta charset="UTF-8">
+         <link rel="stylesheet" href="Content/style.css"/>
+         <title>Hello</title>
+    </head>
+    <body>
+        <h1>Wanna Play Ninja Gold Game?</h1>
+        <h2 class="score">Your Gold:</h2>
+        @If.Context.ViewBag.zero_score
+        <h2 class="score">0</h2>
+        @EndIf
+        @IfNot.Context.ViewBag.zero_score
+        <h2 class="score">@ViewBag.score</h2>
+        @EndIf
+        <div>
+            <div class="buildings">
+                <h3>Farm</h3>
+                <p class="howmuch">(Earns 10-20 golds)</p>
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="farm" />
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div class="buildings">
+                <h3>Cave</h3>
+                <p class="howmuch">(Earns 5-10 golds)</p>
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="cave" />
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div class="buildings">
+                <h3>House</h3>
+                <p class="howmuch">(Earns 2-5 golds)</p>
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="house" />
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div class="buildings">
+                <h3>Casino</h3>
+                <p class="howmuch">(Earns/Takes 0-50 golds)</p>
+                <form action="/process_money" method="post">
+                    <input type="hidden" name="building" value="casino" />
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+        </div>
+        <h2>Activities:</h2>
+        @IfNot.Context.ViewBag.zero_score
+            @Each
+                <p>@Current</p>
+            @EndEach
+        @EndIf
+    </body>
+</html>

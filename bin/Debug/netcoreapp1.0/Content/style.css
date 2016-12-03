@@ -1,0 +1,18 @@
+.buildings{
+    display:inline-block;
+    width: 10%;
+    height:150px;
+    background-color:indianred;
+    vertical-align: top;
+    border: 5px dotted lightpink;
+}
+h3{
+    color: white;
+}
+.howmuch{
+    color:white;
+}
+.score{
+    display:inline-block;
+    width:10%;
+}
